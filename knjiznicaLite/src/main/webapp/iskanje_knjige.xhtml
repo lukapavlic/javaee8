@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:izum="http://xmlns.jcp.org/jsf/composite/comp">
+	
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			<f:view>
+				<h:form>
+
+					<izum:komponenta ime="Peter" priimek="Klepec" /><br/>
+
+					<h:commandButton action="#{knjige.changeLanguage('')}"  value="Slovensko"  /> 
+					<h:commandButton action="#{knjige.changeLanguage('en')}" value="Angleško"  /><br/>
+					<h:outputText value="#{msg['iskanje.naslov']}" /><br/>
+
+					<div align="center">
+						<h:inputText value="#{knjige.iskalniNiz}" size="45" />
+						<h:commandButton value="Išči knjige" actionListener="#{knjige.iskanje}" />
+					</div>
+
+					<h:panelGrid rendered="#{knjige.rezultati ne null}" width="100%">
+						<hr/>
+						Rezultati iskanja: <h:commandLink value="[ počisti ]" actionListener="#{knjige.pocistiRezultateIskanja}"/>
+
+						<h:dataTable value="#{knjige.rezultati}" var="k">
+						
+							<h:column>
+
+								<h:link value="#{k.avtor.priimek} #{k.avtor.ime}: #{k.naslov}" outcome="pregled_knjige">
+									<f:param name="id" value="#{k.id}" />
+								</h:link>
+
+							</h:column>
+							
+							<h:column>
+
+								<h:link value="[ rezerviraj]" outcome="rezervacija_knjige">
+									<f:param name="knjiga" value="#{k.id}" />
+								</h:link>
+
+							</h:column>
+
+						</h:dataTable>			
+						
+					</h:panelGrid>					 
+					 
+				</h:form>
+			</f:view>
+		</ui:define>
+		
+	</ui:composition>
+
+</html>

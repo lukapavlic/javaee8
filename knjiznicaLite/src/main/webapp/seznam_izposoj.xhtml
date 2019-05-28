@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			<f:view>
+				<h:form>
+
+					<h:dataTable value="#{izposoje.ejb.rezervacije}" var="k">
+						<f:facet name="header">Rezervacije</f:facet>						
+						<h:column>
+							#{k.clan.priimek} #{k.clan.priimek} - #{k.knjiga.naslov}
+						</h:column>
+						<h:column>
+							<h:commandButton value="Izposodi" actionListener="#{izposoje.ejb.izposodi(k.knjiga.kodaKnjige,k.clan.kodaClana)}" />
+						</h:column>
+					</h:dataTable>			
+
+					<h:dataTable value="#{izposoje.ejb.izposoje}" var="k">
+						<f:facet name="header">Izposoje</f:facet>						
+						<h:column>
+							#{k.clan.priimek} #{k.clan.priimek} - #{k.knjiga.naslov}
+						</h:column>
+						<h:column>
+							<h:commandButton value="Vrni" actionListener="#{izposoje.ejb.vrni(k.knjiga.kodaKnjige,k.clan.kodaClana)}" />
+						</h:column>
+					</h:dataTable>			
+						
+					 
+				</h:form>
+			</f:view>
+		</ui:define>
+		
+	</ui:composition>
+
+</html>

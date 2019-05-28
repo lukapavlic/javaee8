@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			<f:view>
+				<h:form>
+
+					<h:dataTable value="#{knjigomati.knjigomati}" var="k">
+					
+						<h:column>
+							<h:outputText value="#{k.naziv}" rendered="#{k.urejanje ne true}"/>
+							<h:inputText value="#{k.naziv}" rendered="#{k.urejanje eq true}" />
+						</h:column>
+						<h:column>
+							<h:outputText value="#{k.naslov}"  rendered="#{k.urejanje ne true}"/>
+							<h:inputText value="#{k.naslov}"  rendered="#{k.urejanje eq true}"/>
+						</h:column>
+						<h:column>
+							<h:outputText value="#{k.kapaciteta}"  rendered="#{k.urejanje ne true}"/>
+							<h:inputText value="#{k.kapaciteta}"  rendered="#{k.urejanje eq true}"/>
+						</h:column>
+						<h:column>
+							<h:commandLink value="[uredi]" actionListener="#{knjigomati.uredi(k)}" rendered="#{k.urejanje ne true}" />
+						</h:column>
+					
+					</h:dataTable>	
+					 
+					<h:commandButton value="Dodaj novega" actionListener="#{knjigomati.dodaj}" />
+					
+					<h:commandButton value="Shrani spremembe" actionListener="#{knjigomati.shraniSpremembe}" />
+					 
+				</h:form>
+			</f:view>
+		</ui:define>
+		
+	</ui:composition>
+
+</html>

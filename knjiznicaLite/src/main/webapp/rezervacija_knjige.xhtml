@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			<f:view>
+				<h:form>
+
+					<f:metadata>
+						<f:viewParam name="knjiga" value="#{izposoje.knjigaId}" />
+					</f:metadata>
+					
+					<table border="0">
+						<tr>
+							<td>Naslov:</td>
+							<td>
+								#{izposoje.knjiga.naslov}
+							</td>
+						</tr>
+						<tr>
+							<td>Avtor:</td>
+							<td>
+								#{izposoje.knjiga.avtor.priimek} #{izposoje.knjiga.avtor.ime}
+							</td>
+						</tr>
+						<tr>
+							<td>Koda člana:</td>
+							<td>
+								<h:inputText value="#{izposoje.clanKoda}" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<h:commandButton action="iskanje_knjige" actionListener="#{izposoje.ejb.rezerviraj(izposoje.knjiga.kodaKnjige,izposoje.clanKoda)}" value="Rezerviraj" />
+							</td>
+						</tr>
+						
+					</table>
+					 
+				</h:form>
+			</f:view>
+		</ui:define>
+		
+	</ui:composition>
+
+</html>
