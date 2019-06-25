@@ -7,6 +7,12 @@ Prazen Maven projekt z nastavljenimi odvisnostmi, predlogami HTML datotek in pov
 # KnjiznicaLite:
 Delujoč DEMO Maven projekt (spletna aplikacija) z s funkcionalnosmi za člane, knjige, knjigomate, iskanje in izposojo knjig (JPA + EJB + JSF + JAX-RS)
 
+# knjiznica:
+Delujoči DEMO Maven projekti (spletni aplikaciji + EJB = EAR) z s funkcionalnosmi za člane, knjige, knjigomate, iskanje in izposojo knjig (JPA + EJB + JSF + JAX-RS)
+
+# knjigomatCLI:
+Konzolna aplikacija, ki demonstrira povezovanje na zaledni sistem
+
 # JBatch:
 
 Maven projekt z delujočim primerom Java Batch Processing
