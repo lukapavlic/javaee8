@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+
+	<head> <meta charset="UTF-8" /> </head>
+	
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			<h:form>
+
+				<h:commandLink actionListener="#{clani.nov}" action="urejanje_clana" value="[ Dodaj novega ]"/>
+
+				<h:dataTable value="#{clani.clani}" var="c">
+				
+					<h:column>
+						<f:facet name="header">Priimek</f:facet>
+						<h:outputText value="#{c.priimek}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Ime</f:facet>
+						<h:outputText value="#{c.ime}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">E-mail</f:facet>
+						<h:outputText value="#{c.email}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Koda</f:facet>
+						<h:outputText value="#{c.id}" />
+					</h:column>
+					<h:column>
+						<f:facet name="header">Stanje</f:facet>
+						<h:outputText value="AKTIVEN" rendered="#{c.clanstvoAktivirano eq true}" />
+					</h:column>
+	
+					<h:column>
+						<h:commandLink action="#{clani.uredi(c)}" value="[ uredi ]"/>
+						<h:commandLink action="#{clani.izberi(c)}" value="[ poglej ]"/>
+					</h:column>
+				
+				</h:dataTable>	
+				 
+			</h:form>
+		</ui:define>
+		
+	</ui:composition>
+
+</html>

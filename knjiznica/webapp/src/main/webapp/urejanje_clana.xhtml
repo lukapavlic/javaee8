@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+	
+	<head> <meta charset="UTF-8" /> </head>
+	
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			<h:form>
+
+				<table border="0">
+					<tr>
+						<td>Šifra:</td>
+						<td>
+							<h:inputText id="n_koda" value="#{clani.novi.id}">
+								<f:validateRequired />
+							</h:inputText> *
+							<h:message for="n_koda" style="color:red" />
+						</td>
+					</tr>
+					<tr>
+						<td>Ime:</td>
+						<td>
+							<h:inputText id="n_ime" value="#{clani.novi.ime}">
+								<f:validateRequired />
+							</h:inputText> *
+							<h:message for="n_ime" style="color:red" />
+						</td>
+					</tr>
+					<tr>
+						<td>Priimek:</td>
+						<td>
+							<h:inputText id="n_priimek" value="#{clani.novi.priimek}">
+								<f:validateRequired />
+							</h:inputText> *
+							<h:message for="n_priimek" style="color:red" />
+						</td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td>
+							<h:inputText id="n_email" value="#{clani.novi.email}"  validatorMessage="Vnesite ustrezen e-mail naslov">
+								<f:validateRequired />
+								<f:validateRegex pattern=".+\@.+\..+"  />
+							</h:inputText> *
+							<h:message for="n_email" style="color:red" />
+						</td>
+					</tr>
+					<tr>
+						<td>Aktiven:</td>
+						<td>
+							<h:selectBooleanCheckbox value="#{clani.novi.clanstvoAktivirano}" /> Da
+						</td>
+					</tr>
+					<tr>
+						<td rowspan="2">
+							<h:commandButton value="OK" actionListener="#{clani.shrani}" action="seznam_clanov.xhtml"/>
+						</td>
+					</tr>
+				</table>
+				 
+			</h:form>
+		</ui:define>
+		
+	</ui:composition>
+
+</html>

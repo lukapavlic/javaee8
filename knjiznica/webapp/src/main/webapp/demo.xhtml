@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:izum="http://xmlns.jcp.org/jsf/composite/comp">
+
+<head>
+<meta charset="UTF-8" />
+</head>
+
+<ui:composition template="WEB-INF/template/template.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<h:form>
+				<h:commandButton value="Testni podatki" actionListener="#{demo.ejb.testniPodatki}" onclick="if (! confirm('V podatkovno bazo bodo vpisani novi vnosi. Nadaljujem?')) return false" />
+
+				<hr/>
+				<h:commandButton value="Demo JPA QL" actionListener="#{demo.ejb.testJpaQl}" />
+				<h:commandButton value="Demo Criteria API" actionListener="#{demo.ejb.testJPACriteria}" />
+				<hr/>
+				
+				<h:commandButton value="EJB - stej1" actionListener="#{demo.ejb.stej1}" />  
+				<h:commandButton value="EJB - stej2" actionListener="#{demo.ejb.stej2}" />  
+				<h:commandButton value="EJB - stej3" actionListener="#{demo.ejb.stej3}" />  
+				<hr/>
+				
+				<h:commandButton value="EJB - Dolgo traja" actionListener="#{demo.dolgoTraja}" /> 
+				<h:commandButton value="EJB - Dolgo traja asinhrono" actionListener="#{demo.dolgoTrajaAsinhrono}" />
+				<h:commandButton value="EJB - Dolgo traja pozdrav" actionListener="#{demo.pozdravAsinhrono}" />
+				<hr/>
+
+				<h:commandButton value="VstaviVelikoKnjigomatov - BMT" actionListener="#{demo.ejbTranBmt.vstaviKnjigomate}" />  
+				<h:commandButton value="VstaviVelikoKnjigomatov" actionListener="#{demo.ejbTran.vstaviKnjigomate}" />  
+				<h:commandButton value="VstaviVelikoKnjigomatov - delegat brez transakcije" actionListener="#{demo.ejbTran.delegat}" />  
+				<hr/>
+
+				<h:commandButton value="Metoda A" actionListener="#{demo.ejbLock.metodaA}" />  
+				<h:commandButton value="Metoda B" actionListener="#{demo.ejbLock.metodaB}" />  
+				<hr/>
+
+				<h:commandButton value="MDB vrsta" actionListener="#{demo.posljiSporocila('vrsta')}" />  
+				<h:commandButton value="MDB tema" actionListener="#{demo.posljiSporocila('tema')}" />  
+				<hr/>
+				
+				<h:commandButton value="Klici preko različnih vmesnikov" actionListener="#{demo.posiljanjeObjekta}" />  
+				<hr/>
+				
+				<h1>Serializer primer</h1>
+				<h:commandButton value="Unmarshal" actionListener="#{demoJAXB.deserializiraj}" />
+				<h:commandButton value="Marshal" actionListener="#{demoJAXB.serializiraj}" />
+			</h:form>
+		</f:view>
+	</ui:define>
+
+</ui:composition>
+
+</html>

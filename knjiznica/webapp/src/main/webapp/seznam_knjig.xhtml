@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+	<head> <meta charset="UTF-8" /> </head>
+
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			
+			<f:metadata>
+				<f:viewParam name="zanr" value="#{knjigers.zanr}" />
+			</f:metadata>
+
+			<a href="seznam_knjig.xhtml">Vse knjige</a> |
+			<a href="seznam_knjig.xhtml?zanr=FIKCIJA">Fikcija</a> |
+			<a href="seznam_knjig.xhtml?zanr=LEPOSLOVJE">Leposlovje</a> |
+			<a href="seznam_knjig.xhtml?zanr=BIGRAFIJA">Biografija</a> |
+			<a href="seznam_knjig.xhtml?zanr=MLADINSKIROMAN">Mladinski roman</a> |
+			<a href="seznam_knjig.xhtml?zanr=VODIC">Vodič</a>
+	
+			<h:dataTable value="#{knjigers.knjige}" var="k">
+			
+				<h:column>
+					<h:outputText value="#{k.avtor.priimek} #{k.avtor.ime}: #{k.naslov}" />
+				</h:column>
+
+				<h:column>
+				
+					<h:link value="[uredi]" outcome="urejanje_knjige">
+						<f:param name="id" value="#{k.id}" />
+					</h:link>
+				
+					<h:link value="[pregled]" outcome="pregled_knjige">
+						<f:param name="id" value="#{k.id}" />
+					</h:link>
+				
+				</h:column>
+			
+			</h:dataTable>			
+	
+		</ui:define>
+		
+	</ui:composition>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<h:html
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<h:head>
+	<meta charset="UTF-8" />
+	<title><ui:insert name="title">Knjižnica</ui:insert></title>
+</h:head>
+
+<h:body>
+	<f:view>
+	
+		<div id="header">
+			<ui:insert name="header">
+				<h:form>
+		    		[
+		    			<a href="/webapp/faces/seznam_knjig.xhtml"><h:outputText value="#{msg.meni_knjige}" /></a> |
+		    			<a href="/webapp/faces/urejanje_knjige.xhtml?id=-1"><h:outputText value="#{msg.meni_dodajanje_knjige}" /></a> |
+		    			<a href="/webapp/faces/seznam_clanov.xhtml"><h:outputText value="#{msg.meni_clani}" /></a> |
+		    			<a href="/webapp/faces/urejanje_clana.xhtml"><h:outputText value="#{msg.meni_dodajanje_clanov}" /></a> |
+		    			<a href="/webapp/faces/seznam_knjigomatov.xhtml"><h:outputText value="#{msg.meni_knjigomati}" /></a> |
+		    			<a href="/webapp/faces/iskanje_knjige.xhtml"><h:outputText value="#{msg.meni_iskanje_knjige}" /></a> |
+		    			<a href="/webapp/faces/seznam_izposoj.xhtml"><h:outputText value="#{msg.meni_izposoje}" /></a> |
+		    			<a href="/webapp/faces/demo.xhtml"><h:outputText value="#{msg.meni_demo}" /></a>
+		    		]
+		   			<h:commandLink action="#{knjige.changeLanguage('sl')}"  value="SL"  /> | 
+					<h:commandLink action="#{knjige.changeLanguage('en')}" value="EN"  /> (<h:outputText value="#{knjige.locale.displayLanguage}" />)
+		   		
+		   		</h:form>
+	    		<hr/>
+			</ui:insert>
+		</div>
+	
+		<div id="content">
+			<ui:insert name="content">
+	    		
+	 
+			</ui:insert>
+		</div>
+	
+	</f:view>
+</h:body>
+
+</h:html>

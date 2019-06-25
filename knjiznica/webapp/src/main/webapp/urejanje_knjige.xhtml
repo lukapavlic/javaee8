@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+	<head> <meta charset="UTF-8" /> </head>
+	
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			<h:form>
+
+				<f:metadata>
+					<f:viewParam name="id" value="#{knjige.izbranaId}" />
+				</f:metadata>
+
+				<table border="0">
+					<tr>
+						<td>Naslov:</td>
+						<td>
+							<h:inputText id="n_naslov" value="#{knjige.izbrana.naslov}">
+								<f:validateRequired />
+							</h:inputText> *
+							<h:message for="n_naslov" style="color:red" />
+						</td>
+					</tr>
+					<tr>
+						<td>Avtor:</td>
+						<td>
+							Ime: <h:inputText id="n_ime_avtorja" value="#{knjige.izbrana.avtor.ime}">
+								<f:validateRequired />
+							</h:inputText>
+							Priimek: <h:inputText id="n_priimek_avtorja" value="#{knjige.izbrana.avtor.priimek}">
+								<f:validateRequired />
+							</h:inputText> *
+							<h:message for="n_ime_avtorja" style="color:red" />
+							<h:message for="n_priimek_avtorja" style="color:red" />
+						</td>
+					</tr>
+					<tr>
+						<td>Leto izdaje:</td>
+						<td>
+							<h:inputText id="n_letoIzdaje" value="#{knjige.izbrana.letoIzdaje}" validatorMessage="Vnesite leto izdaje.">
+								<f:validateRequired />
+							</h:inputText> *
+							<h:message for="n_letoIzdaje" style="color:red" />
+						</td>
+					</tr>
+					<tr>
+						<td>Število strani:</td>
+						<td>
+							<h:inputText value="#{knjige.izbrana.steviloStrani}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Opis:</td>
+						<td>
+							<h:inputTextarea cols="60" rows="8" value="#{knjige.izbrana.opis}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Žanr:</td>
+						<td>
+							<h:selectManyCheckbox value="#{knjige.zanri}">
+								<f:selectItem itemValue="FIKCIJA" itemLabel="Fikcija" />
+								<f:selectItem itemValue="LEPOSLOVJE" itemLabel="Leposlovje" />
+								<f:selectItem itemValue="BIGRAFIJA" itemLabel="Biografija" />
+								<f:selectItem itemValue="MLADINSKIROMAN" itemLabel="Mladinski roman" />
+								<f:selectItem itemValue="VODIC" itemLabel="Vodič" />
+							</h:selectManyCheckbox>
+						</td>
+					</tr>
+					<tr>
+						<td rowspan="2">
+							<h:commandButton value="OK" actionListener="#{knjige.shrani}" action="seznam_knjig"/>
+						</td>
+					</tr>
+				</table>
+				 
+			</h:form>
+		</ui:define>
+		
+	</ui:composition>
+
+</html>

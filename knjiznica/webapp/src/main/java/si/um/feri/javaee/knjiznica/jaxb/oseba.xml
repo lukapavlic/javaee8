@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<oseba>
+    <ime>Janez</ime>
+    <priimek>Novak</priimek>
+    <naslov>Koroška cesva 46, 2000 Maribor</naslov>
+    <starost>31</starost>
+    <clan>true</clan>
+    <IzposojeneKnjige>
+        <knjige>Palček</knjige>
+        <knjige>Božanska komedija</knjige>
+        <knjige>1984</knjige>
+    </IzposojeneKnjige>
+</oseba>

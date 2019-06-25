@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+	<head> <meta charset="UTF-8" /> </head>
+	
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+			<h:form>
+
+				<table border="0">
+					<tr>
+						<td>Šifra:</td>
+						<td>
+							<h:outputText value="#{clani.izbran.id}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Ime:</td>
+						<td>
+							<h:outputText value="#{clani.izbran.ime}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Priimek:</td>
+						<td>
+							<h:outputText value="#{clani.izbran.priimek}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td>
+							<h:outputText value="#{clani.izbran.email}" />
+						</td>
+					</tr>
+					<tr>
+						<td>Aktiven:</td>
+						<td>
+							<h:outputText value="DA" rendered="#{clani.izbran.clanstvoAktivirano eq true}" />
+							<h:outputText value="NE" rendered="#{clani.izbran.clanstvoAktivirano ne true}" />
+						</td>
+					</tr>
+					<tr>
+						<td rowspan="2">
+							<h:commandButton value="OK" action="seznam_clanov.xhtml"/>
+						</td>
+					</tr>
+				</table>
+				 
+			</h:form>
+		</ui:define>
+		
+	</ui:composition>
+
+</html>

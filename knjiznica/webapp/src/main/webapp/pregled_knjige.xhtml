@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:jsf="http://xmlns.jcp.org/jsf">
+	
+	<head> <meta charset="UTF-8" /> </head>
+
+	<ui:composition template="WEB-INF/template/template.xhtml">
+	
+		<ui:define name="content">
+
+				<f:metadata>
+					<f:viewParam name="id" value="#{knjige.izbranaId}" />
+				</f:metadata>
+
+				<table border="0">
+					<tr>
+						<td>Naslov:</td>
+						<td>
+							#{knjige.izbrana.naslov}
+						</td>
+					</tr>
+					<tr>
+						<td>Avtor:</td>
+						<td>
+							#{knjige.izbrana.avtor.priimek} #{knjige.izbrana.avtor.ime}
+						</td>
+					</tr>
+					<tr>
+						<td>Koda:</td>
+						<td>
+							#{knjige.izbrana.kodaKnjige}
+						</td>
+					</tr>
+					<tr>
+						<td>Leto izdaje:</td>
+						<td>
+							#{knjige.izbrana.letoIzdaje}
+						</td>
+					</tr>
+					<tr>
+						<td>Število strani:</td>
+						<td>
+							#{knjige.izbrana.steviloStrani}
+						</td>
+					</tr>
+					<tr>
+						<td>Opis:</td>
+						<td>
+							#{knjige.izbrana.opis}
+						</td>
+					</tr>
+					<tr>
+						<td>Žanr:</td>
+						<td>
+							<ui:repeat var="z" value="#{knjige.izbrana.zanr}">
+								#{z} <br/>
+							</ui:repeat>
+						</td>
+					</tr>
+				</table>
+					 
+		</ui:define>
+		
+	</ui:composition>
+
+</html>

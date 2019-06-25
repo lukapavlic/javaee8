@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd"
+	version="2.3">
+
+	<application>
+	
+		<locale-config>
+			<default-locale>sl</default-locale>
+			<supported-locale>en</supported-locale>
+			<supported-locale>sl</supported-locale>
+		</locale-config>
+
+		<resource-bundle>
+			<base-name>si.um.feri.javaee.knjiznica.jsf.messages</base-name>
+			<var>msg</var>
+		</resource-bundle>
+		
+	</application>
+
+	<navigation-rule>
+		<display-name>seznam_clanov.xhtml</display-name>
+		<from-view-id>/seznam_clanov.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>DODAJ</from-outcome>
+			<to-view-id>/urejanje_clana.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>seznam_clanov.xhtml</display-name>
+		<from-view-id>/seznam_clanov.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>UREDI</from-outcome>
+			<to-view-id>/urejanje_clana.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>urejanje_clana.xhtml</display-name>
+		<from-view-id>/urejanje_clana.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>OK</from-outcome>
+			<to-view-id>/pregled_clana.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>pregled_clana.xhtml</display-name>
+		<from-view-id>/pregled_clana.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>OK</from-outcome>
+			<to-view-id>/seznam_clanov.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>urejanje_clana.xhtml</display-name>
+		<from-view-id>/urejanje_clana.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>PREKLICI</from-outcome>
+			<to-view-id>/seznam_clanov.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>seznam_clanov.xhtml</display-name>
+		<from-view-id>/seznam_clanov.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>POGLEJ</from-outcome>
+			<to-view-id>/pregled_clana.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+
+</faces-config>
