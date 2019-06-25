@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Ta datoteka obsega celoten paketni postopek in vsebuje korake opravila.-->
+<job id="job" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/jobXML_1_0.xsd"
+	version="1.0">
+	<listeners>
+		<listener ref="MyJobListener" />
+	</listeners>
+	<step id="myStep">
+		<listeners>
+			<listener ref="MyStepListener" />
+			<listener ref="MyChunkListener" />
+			<listener ref="MyItemReadListener" />
+			<listener ref="MyItemProcessorListener" />
+			<listener ref="MyItemWriteListener" />
+		</listeners>
+		<chunk item-count="3">
+			<reader ref="SimpleItemReader" />
+			<processor ref="SimpleItemProcessor" />
+			<writer ref="SimpleItemWriter" />
+		</chunk>
+	</step>
+</job>
