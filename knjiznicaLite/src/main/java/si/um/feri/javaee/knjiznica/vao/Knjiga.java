@@ -2,7 +2,9 @@ package si.um.feri.javaee.knjiznica.vao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
@@ -23,7 +25,7 @@ public class Knjiga implements Serializable {
 	private String naslov;
 	private String opis;
 	private Avtor avtor=new Avtor();
-	private List<String> zanr=new ArrayList<String>();
+	private Set<String> zanr=new HashSet<String>();
 	private int steviloStrani;
 	private int letoIzdaje;
 	private String kodaKnjige;
@@ -67,11 +69,11 @@ public class Knjiga implements Serializable {
 	}
 
 	@ElementCollection(fetch = FetchType.EAGER)
-	public List<String> getZanr() {
+	public Set<String> getZanr() {
 		return zanr;
 	}
 
-	public void setZanr(List<String> zanr) {
+	public void setZanr(Set<String> zanr) {
 		this.zanr = zanr;
 	}
 

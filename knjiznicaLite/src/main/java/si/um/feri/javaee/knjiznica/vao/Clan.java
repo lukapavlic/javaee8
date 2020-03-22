@@ -2,7 +2,9 @@ package si.um.feri.javaee.knjiznica.vao;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -19,7 +21,7 @@ public class Clan implements Serializable {
 	private String priimek;
 	private String email;
 	private boolean clanstvoAktivirano;
-	private List<Izposoja> izposoje=new ArrayList<Izposoja>();
+	private Set<Izposoja> izposoje=new HashSet<Izposoja>();
 	private String kodaClana;
 
 	public Clan() {
@@ -62,10 +64,10 @@ public class Clan implements Serializable {
 	}
 	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	public List<Izposoja> getIzposoje() {
+	public Set<Izposoja> getIzposoje() {
 		return izposoje;
 	}
-	public void setIzposoje(List<Izposoja> izposoje) {
+	public void setIzposoje(Set<Izposoja> izposoje) {
 		this.izposoje = izposoje;
 	}
 	

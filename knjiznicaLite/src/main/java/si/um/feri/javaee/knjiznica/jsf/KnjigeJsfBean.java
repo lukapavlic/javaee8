@@ -2,8 +2,10 @@ package si.um.feri.javaee.knjiznica.jsf;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
+import java.util.Set;
 import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -47,7 +49,7 @@ public class KnjigeJsfBean implements Serializable {
 	
 	private String iskalniNiz;
 	
-	private List<String> zanri=new ArrayList<String>();
+	private Set<String> zanri=new HashSet<String>();
 
 	private List<Knjiga> rezultati;
 
@@ -83,7 +85,7 @@ public class KnjigeJsfBean implements Serializable {
 		log.info("setIzbranaId("+izbranaId+")");
 		this.izbranaId = izbranaId;
 		izbrana=ejb.najdi(izbranaId);
-		zanri=new ArrayList<String>();
+		zanri=new HashSet<String>();
 		if (izbrana==null) {
 			izbrana=new Knjiga();
 		} else {
@@ -91,11 +93,11 @@ public class KnjigeJsfBean implements Serializable {
 		}
 	}
 
-	public List<String> getZanri() {
+	public Set<String> getZanri() {
 		return zanri;
 	}
 
-	public void setZanri(List<String> zanri) {
+	public void setZanri(Set<String> zanri) {
 		this.zanri = zanri;
 	}
 
