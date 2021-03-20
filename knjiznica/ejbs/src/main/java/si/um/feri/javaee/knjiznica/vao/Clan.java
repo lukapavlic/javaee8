@@ -44,7 +44,7 @@ public class Clan extends ClanJson implements Serializable {
 		this.clanstvoAktivirano = clanstvoAktivirano;
 	}
 	
-	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL) //fetch = FetchType.EAGER, 
 	public List<Izposoja> getIzposoje() {
 		return izposoje;
 	}
